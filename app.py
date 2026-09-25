@@ -1,14 +1,9 @@
 import psutil
 from flask import Flask, render_template, send_from_directory, jsonify, request, redirect, session
-from flask_session.__init__ import Session
 import os
 
-key = os.urandom(8)
 app = Flask(__name__, static_folder='static')
-app.secret_key = key
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_FILE_DIR'] = '/tmp'
-Session(app)
+app.secret_key = "super_secret_static_key_for_vercel"
 
 
 @app.route("/login", methods=["GET", "POST"])
