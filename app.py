@@ -7,6 +7,7 @@ key = os.urandom(8)
 app = Flask(__name__, static_folder='static')
 app.secret_key = key
 app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = '/tmp'
 Session(app)
 
 
